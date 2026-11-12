@@ -1,70 +1,70 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
-<a href="https://github.com/hananchaliq/<nama-repo>/actions"><img src="https://img.shields.io/badge/PHP-8.3%2B-777BB4?style=flat-square&logo=php&logoColor=white" alt="PHP Version"></a>
-<a href="https://laravel.com"><img src="https://img.shields.io/badge/Laravel-13.x-FF2D20?style=flat-square&logo=laravel&logoColor=white" alt="Laravel Version"></a>
+<a href="https://github.com/hananchaliq/antrian-app/actions"><img src="https://img.shields.io/badge/PHP-8.3%2B-777BB4?style=flat-square&logo=php&logoColor=white" alt="Versi PHP"></a>
+<a href="https://laravel.com"><img src="https://img.shields.io/badge/Laravel-13.x-FF2D20?style=flat-square&logo=laravel&logoColor=white" alt="Versi Laravel"></a>
 <a href="https://tailwindcss.com"><img src="https://img.shields.io/badge/Tailwind_CSS-4.x-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind CSS"></a>
-<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License"></a>
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="Lisensi"></a>
 </p>
 
-## About Sistem Antrian Online
+## Tentang Sistem Antrian Online
 
-Sistem Antrian Online is a web-based queue management application built with Laravel and Tailwind CSS. Designed to be lightweight, responsive, and deployable on standard shared hosting without requiring separate WebSocket servers, the application streamlines daily queue operations through:
+Sistem Antrian Online adalah aplikasi web manajemen antrian yang dibangun menggunakan Laravel dan Tailwind CSS. Dirancang agar ringan, responsif, dan dapat langsung dijalankan pada layanan *shared hosting* standar tanpa memerlukan konfigurasi server WebSocket terpisah, aplikasi ini mempermudah operasional antrian harian melalui:
 
-- Real-time queue status synchronization using HTTP JSON Polling (2-second interval).
-- Public visitor interface for generating new queue numbers and monitoring active calls without page reloads.
-- Authenticated admin control panel for managing daily queue progression (*next*, *previous*, and waiting list monitoring).
-- Database-agnostic schema migrations compatible with MySQL and PostgreSQL.
-- Responsive interface styled with Tailwind CSS for both desktop monitor displays and mobile devices.
+- Sinkronisasi status antrian secara *real-time* menggunakan mekanisme *HTTP JSON Polling* (interval 2 detik).
+- Antarmuka pengunjung publik untuk mengambil nomor antrian baru dan memantau panggilan aktif tanpa perlu memuat ulang halaman.
+- Panel kendali admin dengan sistem autentikasi untuk mengelola alur antrian harian (*next*, *previous*, dan pemantauan daftar tunggu).
+- Skema migrasi database yang kompatibel dengan MySQL maupun PostgreSQL.
+- Tampilan responsif berbasis Tailwind CSS untuk layar monitor desktop maupun perangkat seluler.
 
-Sistem Antrian Online is accessible, fast, and provides the essential tools required for structured service queue operations.
+Sistem Antrian Online mudah diakses, cepat, dan menyediakan fitur esensial yang dibutuhkan untuk operasional layanan antrian yang terstruktur.
 
-## Installation
+## Instalasi
 
-Follow these steps to set up the application in your local development environment:
+Ikuti langkah-langkah berikut untuk menyiapkan aplikasi di lingkungan pengembangan lokal Anda:
 
-1. Clone the repository and navigate to the project directory:
+1. Clone repositori dan masuk ke direktori proyek:
 
 ```bash
 git clone https://github.com/hananchaliq/antrian-app.git
-cd <nama-repo>
+cd antrian-app
 ```
 
-2. Install PHP and frontend dependencies:
+2. Pasang dependensi PHP dan aset frontend:
 
 ```bash
 composer install
 npm install && npm run build
 ```
 
-3. Copy the environment configuration file and generate the application key:
+3. Salin berkas konfigurasi environment dan buat *application key*:
 
 ```bash
 cp .env.example .env
 php artisan key:generate
 ```
 
-4. Configure your database credentials (`DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`) in `.env`, run the migrations, and start the local development server:
+4. Atur kredensial database (`DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`) pada berkas `.env`, jalankan migrasi database, lalu hidupkan server pengembangan lokal:
 
 ```bash
 php artisan migrate
 php artisan serve
 ```
 
-## Real-Time Architecture
+## Arsitektur Real-Time
 
-To ensure seamless compatibility across standard shared hosting environments, real-time updates rely on lightweight HTTP JSON polling via the Fetch API rather than persistent socket connections.
+Untuk memastikan kompatibilitas penuh di berbagai lingkungan *shared hosting* standar, pembaruan data secara *real-time* memanfaatkan *HTTP JSON polling* ringan melalui Fetch API alih-alih koneksi *socket* persisten.
 
-The public display and visitor views poll the status endpoint every 2 seconds to synchronize the active queue number and waiting list automatically, keeping server overhead minimal while maintaining responsive updates.
+Halaman tampilan publik dan pengunjung melakukan *polling* ke *endpoint* status setiap 2 detik untuk menyinkronkan nomor antrian aktif serta daftar tunggu secara otomatis, sehingga beban server tetap minimal namun pembaruan tetap responsif.
 
-## Contributing
+## Kontribusi
 
-Contributions, issue reports, and feature suggestions are welcome. Feel free to fork the repository and submit a pull request with clear descriptions of your changes.
+Kontribusi, laporan *bug*, dan saran fitur sangat terbuka. Silakan *fork* repositori ini dan ajukan *pull request* dengan deskripsi perubahan yang jelas.
 
-## Security Vulnerabilities
+## Kerentanan Keamanan
 
-If you discover a security vulnerability within this application, please open an issue or contact the maintainer directly via [GitHub](https://github.com/hananchaliq). All security concerns will be reviewed promptly.
+Jika Anda menemukan celah keamanan pada aplikasi ini, silakan buka *issue* atau hubungi pengelola secara langsung melalui [GitHub](https://github.com/hananchaliq). Setiap laporan keamanan akan segera ditinjau.
 
-## License
+## Lisensi
 
-Sistem Antrian Online is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT), developed by [Hanan Nurdin Ramadhan Chaliq](https://github.com/hananchaliq).
+Sistem Antrian Online adalah perangkat lunak *open-source* yang dilisensikan di bawah [lisensi MIT](https://opensource.org/licenses/MIT), dikembangkan oleh [Hanan Nurdin Ramadhan Chaliq](https://github.com/hananchaliq).
