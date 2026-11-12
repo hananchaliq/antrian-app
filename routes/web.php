@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 // Halaman Pengguna & Endpoint Realtime
 Route::get('/', [QueueController::class, 'index'])->name('queue.index');
 Route::post('/antrian/ambil', [QueueController::class, 'store'])->name('queue.store');
-Route::get('/api/antrian/status', [QueueController::class, 'status'])->name('queue.status');
+Route::get('/antrian/status', [QueueController::class, 'status'])->name('queue.status');
 
 // Otentikasi Admin
 Route::get('/admin/login', [AuthController::class, 'showLogin'])->name('login');
