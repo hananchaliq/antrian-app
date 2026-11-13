@@ -38,7 +38,7 @@ class QueueController extends Controller
          'waiting_list' => $waitingList,
          'waiting_count' => $waitingList->count(),
          'updated_at' => now()->format('H:i:s'),
-      ]);
+      ])->header('Cache-Control', 'no-store, no-cache, must-revalidate');
    }
 
    /**
@@ -49,9 +49,12 @@ class QueueController extends Controller
       $today = now()->toDateString();
 
       $queue = DB::transaction(function () use ($today) {
-         $lastNumber = Queue::where('queue_date', $today)
+         $lastQueue = Queue::where('queue_date', $today)
+            ->orderByDesc('queue_number')
             ->lockForUpdate()
-            ->max('queue_number') ?? 0;
+            ->first();
+
+         $lastNumber = $lastQueue ? $lastQueue->queue_number : 0;
 
          return Queue::create([
             'queue_number' => $lastNumber + 1,
